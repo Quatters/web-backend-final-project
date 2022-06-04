@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New SomeOption{% endblock %}
+
+{% block body %}
+    <h1>Create new SomeOption</h1>
+
+    {{ include('some_option/_form.html.twig') }}
+
+    <a href="{{ path('app_some_option_index') }}">back to list</a>
+{% endblock %}

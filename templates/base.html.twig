@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Some app{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+        <header>
+            <a href="/home">Home</a>
+            <a href="/some_type">Some types</a>
+            <a href="/some_option">Some options</a>
+            <a href="/some_m2m_entity">Some M2M entities</a>
+            <a href="/some_big_entity">Some big entities</a>
+            <a href="/images">Images</a>
+            {% if not app.user %}
+                <span class="auth">
+                    <a href="/login">Login</a>
+                    <a href="/register">Register</a>
+                </span>
+            {% else %}
+                <span class="auth"><a href="/logout">Logout</a> ({{ app.user }})</span>
+            {% endif %}
+        </header>
+        {% block body %}{% endblock %}
+    </body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        * {
+            font-family: 'Roboto', sans-serif;
+        }
+        body {
+            margin-left: 2rem;
+            margin-right: 2rem;
+        }
+        header {
+            display: flex;
+            border-bottom: 1px solid lightgray;
+        }
+        a, a:visited {
+            text-decoration: none;
+            color: royalblue;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        header * {
+            margin: 4px 4px 12px 4px;
+        }
+        .auth {
+            margin-left: auto;
+        }
+        table thead:first-child {
+            background-color: lightgray;
+        }
+        table {
+            border-spacing: 0;
+            border-collapse: separate;
+            border: 1px solid lightgray;
+        }
+        table th, table td {
+            padding: 10px 14px;
+            text-align: start;
+        }
+        table tr:nth-child(even) {
+            background-color: rgb(236, 236, 236);
+        }
+        input, select {
+            margin: 8px;
+            font-size: 15px;
+        }
+        button {
+            font-size: 15px;
+            padding: 2px 10px;
+        }
+    </style>
+</html>

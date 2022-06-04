@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SomeM2MEntity index{% endblock %}
+
+{% block body %}
+    <h1>SomeM2MEntity index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for some_m2m_entity in some_m2m_entities %}
+            <tr>
+                <td>{{ some_m2m_entity.id }}</td>
+                <td>{{ some_m2m_entity.name }}</td>
+                <td>
+                    <a href="{{ path('app_some_m2m_entity_show', {'id': some_m2m_entity.id}) }}">show</a>
+                    <a href="{{ path('app_some_m2m_entity_edit', {'id': some_m2m_entity.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_some_m2m_entity_new') }}">Create new</a>
+{% endblock %}

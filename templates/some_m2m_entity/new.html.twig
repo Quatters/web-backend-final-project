@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New SomeM2MEntity{% endblock %}
+
+{% block body %}
+    <h1>Create new SomeM2MEntity</h1>
+
+    {{ include('some_m2m_entity/_form.html.twig') }}
+
+    <a href="{{ path('app_some_m2m_entity_index') }}">back to list</a>
+{% endblock %}

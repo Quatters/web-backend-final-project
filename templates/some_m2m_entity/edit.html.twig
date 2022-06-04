@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit SomeM2MEntity{% endblock %}
+
+{% block body %}
+    <h1>Edit SomeM2MEntity</h1>
+
+    {{ include('some_m2m_entity/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_some_m2m_entity_index') }}">back to list</a>
+
+    {{ include('some_m2m_entity/_delete_form.html.twig') }}
+{% endblock %}

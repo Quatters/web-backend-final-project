@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SomeBigEntity{% endblock %}
+
+{% block body %}
+    <h1>SomeBigEntity</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ some_big_entity.id }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ some_big_entity.createdAt ? some_big_entity.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ some_big_entity.description }}</td>
+            </tr>
+            <tr>
+                <th>Option</th>
+                <td>{{ some_big_entity.option }}</td>
+            </tr>
+            <tr>
+                <th>User</th>
+                <td>{{ some_big_entity.user }}</td>
+            </tr>
+            <tr>
+                <th>M2M entities</th>
+                <td>
+                    {% for m2m in some_big_entity.getSomeM2M() %}
+                        {{ m2m }}
+                    {% endfor %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_some_big_entity_index') }}">back to list</a>
+
+    <a href="{{ path('app_some_big_entity_edit', {'id': some_big_entity.id}) }}">edit</a>
+
+    {{ include('some_big_entity/_delete_form.html.twig') }}
+{% endblock %}

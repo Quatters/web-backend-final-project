@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Images{% endblock %}
+
+{% block body %}
+    <h1>Images</h1>
+    <div>
+        <a href="{{ path('app_image_entity_new') }}">Upload image</a>
+    </div>
+    {% for image in images %}
+        <a href="/images/{{ image }}" target="__blank">
+            <img src="{{ image }}" alt="" width="250" style="margin: 16px">
+        </a>
+    {% endfor %}
+{% endblock %}
