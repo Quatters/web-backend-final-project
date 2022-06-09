@@ -10,7 +10,39 @@
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
-
-        <button style="margin-top: 6px" type="submit" class="btn">Register</button>
+    <div class="card-info">
+        <div>
+            <label>Cardholder name</label>
+            <input type="text" placeholder="Name on card">
+        </div>
+        <div>
+            <label>Card number</label>
+            <input type="text" placeholder="1111 2222 3333 4444">
+        </div>
+        <div>
+            <label>End date</label>
+            <input type="number" placeholder="mm" class="end-date">
+            <input type="number" placeholder="dd" class="end-date">
+        </div>
+        <div>
+            <label>CVV/CVC</label>
+            <input type="number">
+        </div>
+    </div>
+    <button style="margin-top: 6px" type="submit" class="btn">Register</button>
     {{ form_end(registrationForm) }}
+
+    <style>
+        .card-info {
+            margin-top: 1rem;
+        }
+        .card-info label {
+            display: inline-block;
+            width: 10rem;
+        }
+        .card-info .end-date {
+            width: 5rem;
+            margin-right: 2px;
+        }
+    </style>
 {% endblock %}
